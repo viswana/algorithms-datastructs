@@ -5,8 +5,8 @@ using namespace std;
 //For all positive integers n and m. n > m, 
 //use equations, a = n^2-m^2, b = 2*m*n, c = n^2+m^2 as long as c < limit
 //This is Euclid's method for generating pythagorean triplets. 
-//
-#define LIMIT 20 
+
+#define LIMIT 1000
 
 int main() {
   int m = 1, n = 2, c = n*n + m*m;

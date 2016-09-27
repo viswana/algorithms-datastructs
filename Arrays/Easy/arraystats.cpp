@@ -78,6 +78,8 @@ void shuffle(long long a[], size_t s) {
   }
 }
 
+//Uses quickSelect randomized algorithm which gives
+//linear expected time determine rank statistics
 int GetNthLargest(long long a[], size_t s, size_t rank, long long* soln) {
   int ret = -1;
   if (a != NULL && s > 0 && rank < s && soln != NULL) {

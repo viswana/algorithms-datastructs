@@ -6,7 +6,7 @@
 
 void luckyNumber(unsigned long long n) {
   if (n < 10) printf ("%llu\n", n);
-  unsigned long long sum = 0;
+  unsigned int sum = 0;
   while (n > 0) {
     unsigned int r = n % 10;
     sum += r;
@@ -16,13 +16,13 @@ void luckyNumber(unsigned long long n) {
       sum = 0;
     }
   }
-  printf ("%llu\n", sum);
+  printf ("%u\n", sum);
 }
 
-unsigned long long luckyNumberR(unsigned long long n) {
+unsigned int luckyNumberR(unsigned long long n) {
   if (n < 10) return n;
   unsigned int r = n % 10;
-  unsigned long long sum = 0;
+  unsigned int sum = 0;
   sum += r + luckyNumberR(n/10);
   if (sum > 9) return luckyNumberR(sum);
   return sum;
@@ -30,6 +30,6 @@ unsigned long long luckyNumberR(unsigned long long n) {
 
 int main() {
   luckyNumber(5923);
-  printf("%llu\n", luckyNumberR(5923));
+  printf("%u\n", luckyNumberR(5923));
   return  0;
 }

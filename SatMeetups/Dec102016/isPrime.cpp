@@ -42,7 +42,7 @@ void findPrimes(size_t n, set<size_t>& cache) {
     maxprime = *cache.rbegin();
     size_t x = floorSqrt(maxprime);
     if (x*x < maxprime) x += 1;
-    if (floorSqrt(n) <= x) return;
+    if (sqrtn <= x) return;
     tsize = n-maxprime;
   }
   size_t t[tsize];

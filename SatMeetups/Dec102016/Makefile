@@ -1,6 +1,6 @@
 CXXFLAGS += -Wall -Wextra -g -std=c++11
 CFLAGS += -Wall -Wextra -g
-TGT = printParens isPrime OverlappingRect
+TGT = printParens isPrime OverlappingRect rle
 
 all: $(TGT)
 

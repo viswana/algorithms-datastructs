@@ -1,11 +1,11 @@
 #include <string.h>
 #include <stdio.h>
 
-#define FLUSH(ct, x)        \
+#define FLUSH(ct, x, ar, c) \
   do {                      \
     if (ct < 3) {           \
       while (ct) {          \
-        a[x] = tmp;         \
+        ar[x] = c;          \
         x++;                \
         ct--;               \
       }                     \
@@ -21,11 +21,11 @@
       }                     \
       b[cnt] = '\0';        \
       while (cnt) {         \
-        a[x] = b[cnt-1];    \
+        ar[x] = b[cnt-1];   \
         x++;                \
         cnt--;              \
       }                     \
-      a[x] = tmp;           \
+      ar[x] = c;            \
       x++;                  \
     }                       \
   } while(0)
@@ -37,13 +37,13 @@ void inplaceRLE(char* a, size_t n) {
   size_t i = 0, j = 1;
   while (a[j] != '\0') {
     if (a[j] != tmp) {
-      FLUSH(count, i);
+      FLUSH(count, i, a, tmp);
     }
     if (a[j] != '\0') tmp = a[j];
     j++;
     count++;
   }
-  FLUSH(count, i);
+  FLUSH(count, i, a, tmp);
   a[i] = '\0';
 }
 

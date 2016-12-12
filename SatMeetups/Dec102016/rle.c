@@ -3,8 +3,8 @@
 
 #define FLUSH(ct, x)        \
   do {                      \
-    if (ct < 3) {        \
-      while (ct) {       \
+    if (ct < 3) {           \
+      while (ct) {          \
         a[x] = tmp;         \
         x++;                \
         ct--;               \
@@ -14,7 +14,7 @@
       char b[20];           \
       int cnt = 0;          \
       while (ct > 0) {      \
-        int m = ct % 10; \
+        int m = ct % 10;    \
         b[cnt] = '0' + m;   \
         cnt++;              \
         ct  = ct/10;        \

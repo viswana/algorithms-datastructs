@@ -82,8 +82,12 @@ void findPrimes(size_t n, set<size_t>& cache) {
     if (it == cache.end()) {
       //cout << "Reached end of cache"<< endl;
       size_t i;
-      for (i = 0; i < tsize; i++) 
-        if (t[i] > 0) minPrime = t[i]; 
+      for (i = 0; i < tsize; i++) {
+        if (t[i] > 0) {
+          minPrime = t[i]; 
+          break;
+        }
+      }
       size_t nextpidx = i;
       while(minPrime <= sqrtn) {
         size_t nextprime;
@@ -118,9 +122,14 @@ int main() {
   set<size_t> primeCache;
   cout << isPrime(10) << endl;
   cout << isPrime2(10, primeCache) << endl;
-  cout << isPrime2(61, primeCache) << endl;
-  cout << isPrime2(2017, primeCache) << endl;
-  cout << isPrime(2017) << endl;
+  //for (auto i : primeCache) 
+  //  cout << i << ", ";
+  //cout << endl;
+  cout << isPrime2(99907, primeCache) << endl;
+  //for (auto i : primeCache) 
+  //  cout << i << ", ";
+  //cout << endl;
+  cout << isPrime(99907) << endl;
 }
 
 

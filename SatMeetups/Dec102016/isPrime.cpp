@@ -34,6 +34,7 @@ void findPrimes(size_t n, set<size_t>& cache) {
   bool isCacheEmpty = cache.empty();
   size_t tsize;
   size_t maxprime;
+  size_t sqrtn = floorSqrt(n);
   if (isCacheEmpty) {
     tsize = n+1;
   }
@@ -57,7 +58,6 @@ void findPrimes(size_t n, set<size_t>& cache) {
   //Find the minimum idx starting a 2 that is false;
   if (isCacheEmpty) {
     size_t minPrime = 1;
-    size_t sqrtn = floorSqrt(n);
     while (minPrime <= sqrtn) {
       for (minPrime++; minPrime < n; minPrime++) 
         if (t[minPrime] != 0) break;
@@ -73,7 +73,6 @@ void findPrimes(size_t n, set<size_t>& cache) {
     //cout << "Checking for more primes" << endl;
     auto it = cache.begin();
     size_t minPrime = *it;
-    size_t sqrtn = floorSqrt(n);
     for (; it != cache.end() && minPrime <= sqrtn; ++it, minPrime = *it) {
       for (size_t i = 0; i < tsize; i++) {
         if (t[i] > 0 && (t[i] % minPrime == 0)) t[i] = 0;

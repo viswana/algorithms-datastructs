@@ -5,6 +5,6 @@ TGT = fizzbuzz reverseWords luckyNumber numWords
 all: $(TGT)
 
 clean:
-	@rm -f $(TGT)
+	@rm -rf $(TGT) *.dSYM
 
 .PHONY: all clean

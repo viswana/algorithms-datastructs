@@ -1,0 +1,7 @@
+CPPFLAGS += -g -I.
+PROBLEMS := p7_1
+
+all: $(PROBLEMS)
+
+clean:
+	rm -rf $(PROBLEMS) *.dSYM *.log

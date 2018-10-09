@@ -54,6 +54,7 @@ unsigned int binomialCoeffHelper(unsigned int n, unsigned int r) {
   return binomialCoeffHelper(n-1, r-1) + binomialCoeffHelper(n-1, r);
 }
 
+//O(n^2) time and space
 vector<unsigned int> binomialCoeff(unsigned int n) {
   if (!n) return {1};
   vector<unsigned int> out;
@@ -64,6 +65,7 @@ vector<unsigned int> binomialCoeff(unsigned int n) {
   return out;
 }
 
+//O(n^2) time, O(n) space
 vector<unsigned int> binomialCoeff1(unsigned int n) {
   if (!n) return {1};
   else if (n == 1) return {1, 1};

@@ -46,6 +46,24 @@ int partition2(int* a, int len, int x) {
   return j;
 }
 
+int partition3(int* a, int len, int x) {
+  if (!a || len < 1) return -2;
+  int m = 0, i = 0;
+  for (; i < len && a[i] <= x; ++i, ++m);
+  if (i == len) return m-1;
+  while (i < len) {
+    if (a[i] > x) ++i;
+    else {
+      int t = a[m];
+      a[m] = a[i];
+      a[i] = t;
+      ++i;
+      ++m;
+    }
+  }
+  return m-1;
+}
+
 int rangePartition(int* a, int len, pair<int, int> range, pair<int, int>& out) {
   if (!a || len < 1)  return -1;
   int i = 0, k = 0, j = len-1;
@@ -153,7 +171,7 @@ int main() {
     cout << i << ", ";
   }
   cout << endl;
-  int m = partition(a, sizeof(a)/sizeof(int), 9);
+  int m = partition3(a, sizeof(a)/sizeof(int), 9);
   for (auto i : a) {
     cout << i << ",  ";
   }
